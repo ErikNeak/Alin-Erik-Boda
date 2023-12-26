@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Agrega los enlaces a los archivos CSS y JS de Bootstrap y jQuery -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Agrega la biblioteca Countdown.js -->
+    <script src="https://cdn.rawgit.com/hilios/jQuery.countdown/2.2.0/dist/jquery.countdown.min.js"></script>
+    <style>
+		
+		#Titulos {font-family: 'Dancing Script', cursive;font-weight: 700; color: #00000;font-size: 60px; color: #D4AF37}
+		#SubTitulos {font-family: 'Dancing Script', cursive;font-weight: 700; color: #00000;font-size: 40px; color: #FFFFFF}
+		#SubTitulos3 {font-family: 'Dancing Script', cursive;font-weight: 700; color: #00000;font-size: 35px; color: #FFFFFF}
+		#SubTitulos2 {font-family: 'Assistant', sans-serif;font-weight: 400; color: #FFFFFF; font-size: 30px;}
+		#TextoS {font-family: 'Assistant', sans-serif;font-weight: 500; color: #00000; font-size: 22px;}
+		#TextoS2 {font-family: 'Dancing Script', cursive;font-weight: 500; color: #00000;font-size: 30px;}
+		#TextoG2 {font-family: 'Assistant', sans-serif;font-weight: 400; color: #00000; font-size: 15px;}
+		#TextoG {font-family: 'Assistant', sans-serif;font-weight: 400; color: #00000; font-size: 20px;}
+		#TextoGB {font-family: 'Assistant', sans-serif;font-weight: 400; color: #FFFFFF; font-size: 20px;}
+		#TextoB {font-family: 'Assistant', sans-serif;font-weight: 400; color: #00000; font-size: 15px;}
+
+        /* Estilos personalizados para centrar el contenido */
+        .centered {
+            text-align: center;
+            margin-top: 20px; /* Margen superior más pequeño */
+            margin-bottom: 30px; /* Margen inferior más grande */
+        }
+		 /* Estilos personalizados para centrar el contenido */
+        .DegradadoN {
+            text-align: center;
+            margin-top: -30px; /* Margen superior más pequeño */
+            margin-bottom: -10px; /* Margen inferior más grande */
+        }
+	
+        body {
+            background-color: #000;
+            background-image: url('ruta-de-tu-imagen.jpg'); /* Reemplaza 'ruta-de-tu-imagen.jpg' con la ubicación de tu imagen */
+            /*background-size: cover;*/ /* Ajusta la imagen para cubrir todo el fondo */
+            /*background-repeat: no-repeat;*/ /* Evita que la imagen se repita */
+        }
+
+        .overlay-Banners {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo transparente */
+            color: white; /* Texto blanco */
+            padding: 20px; /* Espacio interior */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease; /* Animación de opacidad */
+        }
+
+        .overlay-Banners h2 {
+            font-size: 24px; /* Tamaño del título */
+            margin-bottom: 10px; /* Margen inferior del título */
+        }
+
+        .overlay-Banners p {
+            font-size: 16px; /* Tamaño del texto */
+        }
+
+        .overlay-Banners .icon-Banners {
+            width: 50px; /* Tamaño del icono */
+            height: 50px;
+            margin-top: 20px; /* Margen superior del icono */
+        }
+
+        /* Mostrar la superposición al pasar el mouse sobre la diapositiva */
+        .carousel-item:hover .overlay-Banners {
+            opacity: 1;
+        }
+
+        .carousel-inner {
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0px; /* Posición en la parte inferior de la imagen */
+            left: 50px; /* Márgen izquierdo más pequeño */
+            right: 50px; /* Márgen derecho más pequeño */
+            background-color: white; /* Fondo blanco */
+            color: black; /* Texto negro */
+            padding: 5px; /* Espacio interior del cuadro más pequeño */
+            width: auto; /* Ancho automático basado en contenido */
+            text-align: center; /* Texto centrado */
+            transition: transform 0.3s ease; /* Animación de transformación */
+        }
+		 .overlay2 {
+            position: absolute;
+            padding: 5px; /* Espacio interior del cuadro más pequeño */
+            width: auto; /* Ancho automático basado en contenido */
+            text-align: center; /* Texto centrado */
+            transition: transform 0.3s ease; /* Animación de transformación */
+        }
+
+        .overlay h2 {
+            font-size: 24px; /* Tamaño del título */
+            margin-bottom: 10px; /* Margen inferior del título */
+        }
+
+        .overlay p {
+            font-size: 16px; /* Tamaño del texto */
+        }
+
+        /* Estilos para el margen o marco blanco de la imagen */
+        .image-container {
+            border: 10px solid #D4AF37; /* Margen o marco blanco */
+            overflow: hidden; /* Ocultar el exceso de imagen en el margen */
+        }
+
+        /* Animación al pasar el mouse sobre la superposición */
+        .overlay:hover {
+            transform: scale(1.15); /* Escala un 5% más grande al pasar el mouse */
+        }
+		
+		 /* Animación al pasar el mouse sobre la superposición */
+        .overlay2:hover {
+            transform: scale(1.15); /* Escala un 5% más grande al pasar el mouse */
+        }
+		
+		.seccion-dedicatoria {
+        background: url('ruta-de-tu-imagen.jpg') center center fixed;
+        background-size: cover;
+        color: black; /* Cambia el color del texto a negro */
+        padding: 50px 0; /* Espacio interior superior e inferior */
+    	}
+		
+		.desktop-image {
+    	width: 100%;
+    	height: auto;
+		}
+		
+		#audio-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+            padding: 10px;
+            box-sizing: border-box;
+            display: none; /* Oculto por defecto */
+        }
+
+        #audio-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #audio-controls audio {
+            width: 80%;
+            margin-right: 10px;
+        }
+
+        #play-pause-btn,
+        #show-btn {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+		
+		
+    </style>
+</head>
+<body>
+<div class="container-fluid p-0">
+
+<!-- Banner Carrusel -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active position-relative">
+            <picture>
+                <source media="(min-width: 640px)" srcset="imag/B-MOB-01.png">
+                <img class="img-fluid desktop-image" src="imag/B-DESK-01.png">
+            </picture>
+            <!-- Superposición de texto e imagen -->
+            <div class="overlay-Banners">
+                <h2 id="Titulos">Nuestra Boda</h2>
+                <p id="SubTitulos">Alin & Erik</p>
+                <img src="imag/Mariposa.svg" alt="Icono" class="icon-Banners">
+            </div>
+        </div>
+
+        <div class="carousel-item position-relative">
+            <picture>
+                <source media="(min-width: 640px)" srcset="imag/B-MOB-02.png">
+                <img class="img-fluid desktop-image" src="imag/B-DESK-02.png">
+            </picture>
+            <!-- Superposición de texto e imagen -->
+            <div class="overlay-Banners">
+                <h2 id="Titulos">Nuestra Boda</h2>
+                <p id="SubTitulos">Alin & Erik</p>
+                <img src="imag/Mariposa.svg" alt="Icono" class="icon-Banners">
+            </div>
+        </div>
+
+        <div class="carousel-item position-relative">
+            <picture>
+                <source media="(min-width: 640px)" srcset="imag/B-MOB-03.png">
+                <img class="img-fluid desktop-image" src="imag/B-DESK-03.png">
+            </picture>
+            <!-- Superposición de texto e imagen -->
+            <div class="overlay-Banners">
+                <h2 id="Titulos">Nuestra Boda</h2>
+                <p id="SubTitulos">Alin & Erik</p>
+                <img src="imag/Mariposa.svg" alt="Icono" class="icon-Banners">
+            </div>
+        </div>
+
+        <!--<div class="carousel-item position-relative">
+            <picture>
+                <source media="(min-width: 640px)" srcset="imag/B-MOB-04.png">
+                <img class="img-fluid desktop-image" src="imag/B-DESK-04.png">
+            </picture>
+            
+            <div class="overlay-Banners">
+                <h2 id="Titulos">Alin & Erik</h2>
+                <p id="SubTitulos">Abril  6  2024</p>
+                <img src="imag/Mariposa.svg" alt="Icono" class="icon-Banners">
+            </div>
+        </div>-->
+    </div>
+</div>
+
+
+    <!-- Cuenta regresiva de la boda centrada -->
+    <div class="centered">
+        <h3 id="Titulos">Abril 6, 2024</h3>
+		<div id="SubTitulos2">
+        <div id="timer">
+            <span id="days"></span> días
+            <span id="hours"></span> horas
+            <span id="minutes"></span> minutos
+
+        </div>
+			
+	  </div>
+		
+		
+        <!-- Agregar botón para agregar al calendario -->
+	
+        <a id="TextoB" href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=M2NnM2xvZW5vc3VxOWcwNzFqdjlmY3Axc3QgMDY5NWFhY2RiYjdmMGY0YWIyMjAzMGQ4MDA2NGU3YWY3YjgwMzc4N2EyY2I0ZjJlZWFmNjRjYTRiN2Q5M2ZhZkBn&tmsrc=0695aacdbb7f0f4ab22030d80064e7af7b803787a2cb4f2eeaf64ca4b7d93faf%40group.calendar.google.com" target="_blank" class="btn btn-warning mt-3">Agregar al Calendario</a>
+    </div>
+
+	<!--Horario de salon y fiesta-->    
+	<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center mb-3 mb-sm-0">
+            <!-- Contenido centrado de la primera columna -->
+            <div class="text-center">
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <h2 id="TextoS2">Ceremonia</h2>
+                        <p id="TextoG2">2:00 pm en el jardín del salón </p>
+                    </div>
+                    <!-- Imagen de fondo con margen o marco blanco -->
+                    <div class="image-container">
+                        <img src="imag/Ceremonia.png" class="d-block w-100" alt="Imagen 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
+            <!-- Contenido centrado de la segunda columna -->
+            <div class="text-center">
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <h2 id="TextoS2">Fiesta</h2>
+                        <p id="TextoG2">3:30 pm en el salón</p>
+                    </div>
+                    <!-- Imagen de fondo con margen o marco blanco -->
+                    <div class="image-container">
+                        <img src="imag/Salon.png" class="d-block w-100" alt="Imagen 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		<div class="col text-center">
+			<a id="TextoB" href="https://maps.app.goo.gl/T1ygca28jDMCycQG6" target="_blank" class="btn btn-warning mt-3">Cómo llegar</a>
+		</div>
+				
+    </div>
+</div>
+	
+<!--Dedicatoria-->	
+<div class="seccion-dedicatoria">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h2 id="Titulos"> Gracias a todos por ser parte de este momento tan especial.</h2>
+                <p id="SubTitulos3">Alin & Erik</p>
+            </div>
+        </div>
+    </div>
+</div>
+	
+<div class="container-fluid p-0 DegradadoN" >
+          <picture>
+            <source media="(min-width: 640px)" srcset="imag/Degradado-DESK.png">
+            <img class="img-fluid desktop-image" src="imag/Degradado-MOB.png">
+            </picture>
+</div>
+<!-- Mesa de regalos -->
+<div  style="background-color: #e9e9e9">
+    <div class="col text-center">
+        
+		<a style="opacity: 0">.</a>
+      <h2 id="Titulos">Mesa de regalos</h2>
+        <p id="TextoG">Nuestro mejor regalo es que estés con nosotros en nuestro día, pero si quieres hacernos un obsequio, aquí están nuestras opciones, si deseas regalarnos algo de Liverpool en tienda que no se encuentre en nuestra mesa de regalos favor de usar nuestro No. de Evento.</p>
+    </div>
+    <div class="row">
+        
+        <div class="col-md-4 mb-2">
+            <!-- Contenido de la segunda columna -->
+            <div class="p-3">
+                <!-- Tu contenido aquí -->
+                <div class="p-3">
+                    <!-- Tu contenido aquí -->
+                    <div style="background: transparent;"> <!-- Fondo transparente y sin marco -->
+                        <img src="imag/MR-Liverpool.png" class="card-img-top" alt="...">
+                        <div class="card-body text-center"> <!-- Agregamos la clase text-center aquí -->
+                            <h5 class="card-title">No. Evento</h5>
+							<p class="card-text">#51242322</p>
+                            <a id="TextoB" href="https://mesaderegalos.liverpool.mx/LP/51242322/Alin-Erik_Enrique" class="btn btn-warning mx-auto" target="_blank">Ir a la Mesa de Regalo</a> <!-- Agregamos la clase mx-auto aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="col-md-4 mb-2">
+            <!-- Contenido de la primera columna -->
+            <div class="p-3">
+                <!-- Tu contenido aquí -->
+                <div class="p-3">
+                    <!-- Tu contenido aquí -->
+                    <div style="background: transparent;"> <!-- Fondo transparente y sin marco -->
+                        <img src="imag/MR-Amazon.png" class="card-img-top" alt="...">
+                        <div class="card-body text-center"> <!-- Agregamos la clase text-center aquí -->
+                            <a id="TextoB" href="https://www.amazon.com.mx/wedding/share/Alin-y-Erik" class="btn btn-warning mx-auto" target="_blank">Ir a la Mesa de Regalo</a> <!-- Agregamos la clase mx-auto aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-2">
+            <!-- Contenido de la tercera columna -->
+            <div class="p-3">
+                <!-- Tu contenido aquí -->
+                <div class="p-3">
+                    <!-- Tu contenido aquí -->
+                    <div style="background: transparent;" > <!-- Fondo transparente y sin marco -->
+                        <img src="imag/MR-BBVA.png" class="card-img-top" alt="...">
+                        <div class="card-body text-center"> <!-- Agregamos la clase text-center aquí -->
+                            <h5 class="card-title">Alin Vega</h5>
+                            <p class="card-text">4152 3136 7206 6656</p>
+							<p class="card-text">Concepto: Nombre+Apellido+RB</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid p-0 DegradadoN" >
+          <picture>
+            <source media="(min-width: 640px)" srcset="imag/Degradado-DESK-R.png">
+            <img class="img-fluid desktop-image" src="imag/Degradado-MOB-R.png">
+            </picture>
+</div>
+	
+<div class="container mt-4">
+    <!-- Sección de Confirmación de Asistencia -->
+    <div class="text-center">
+        <h2 id="Titulos">Confirma tu Asistencia</h2>
+        <p id="TextoGB">Tu presencia es muy importante para nosotros, por favor apóyanos a confirmar tu lugar antes del 19 de febrero del 2024.</p>
+        <a id="TextoB" href="https://docs.google.com/spreadsheets/d/16WEMczRV75xTidqD-smreNXWpF9criMhuaoaViEI-oA/edit?usp=sharing" class="btn btn-warning mx-auto" target="_blank">Confirmar Asistencia</a> 
+    </div>
+	
+
+	
+
+
+	
+</div>
+	
+		<div class="container-fluid p-0">
+                <img class="img-fluid desktop-image" src="imag/B-MOB-04.png">   
+        </div>
+	
+
+<script>
+  // Crea un elemento de audio
+  var audio = new Audio();
+
+  // Establece la fuente de la canción
+  audio.src = 'audio/Besame.mp3'; // Reemplaza 'URL_DE_TU_CANCION.mp3' con la URL de tu canción
+
+  // Reproduce la canción automáticamente cuando la página se carga
+  audio.play();
+</script>
+
+<script>
+    // Configura la fecha de la boda en la zona horaria de la Ciudad de México (GMT-6)
+    var weddingDate = new Date("2024-04-06T13:00:00-06:00");
+
+    // Inicializa la cuenta regresiva
+    $('#timer').countdown(weddingDate, function(event) {
+        $('#days').text(event.strftime('%D'));
+        $('#hours').text(event.strftime('%H'));
+        $('#minutes').text(event.strftime('%M'));
+        $('#seconds').text(event.strftime('%S'));
+    });
+</script>
+</body>
+</html>
